@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="ch02.browser.perspective.WebBrowserPerspective"
+            icon="icons/16-earth.png"
+            id="ch02.browser.perspective.WebBrowserPerspective"
+            name="Web Browser">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="WebBrowser"
+            name="Web Browsing">
+      </category>
+      <view
+            category="WebBrowser"
+            class="ch02.browser.views.BookMarksView"
+            icon="icons/16-earth.png"
+            id="ch02.browser.views.BookMarksView"
+            name="Bookmarks">
+      </view>
+      <view
+            allowMultiple="true"
+            category="WebBrowser"
+            class="ch02.browser.views.WebBrowserView"
+            icon="icons/16-earth.png"
+            id="ch02.browser.views.WebBrowserView"
+            name="Web Browser"
+            restorable="true">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="ch02.WebBrowser.commands.category"
+            name="Web Category">
+      </category>
+      <command
+            categoryId="ch02.WebBrowser.commands.category"
+            id="ch02.WebBrowser.commands.newBrowser"
+            name="New Browser">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="ch02.webbrowser.handlers.NewBrowserHandler"
+            commandId="ch02.WebBrowser.commands.newBrowser">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="ch02.WebBrowser.commands.newBrowser"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+6">
+      </key>
+   
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="ch02.WebBrowser.toolbars.webToolbar">
+            <command
+                  commandId="ch02.WebBrowser.commands.newBrowser"
+                  icon="icons/16-earth.png"
+                  id="ch02.WebBrowser.toolbars.newBrowserCommand"
+                  tooltip="Open a Web Browser">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Vladimir Silva">
+	<META NAME="CREATED" CONTENT="20080811;10491700">
+	<META NAME="CHANGEDBY" CONTENT="Vladimir Silva">
+	<META NAME="CHANGED" CONTENT="20080811;10515500">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H1 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 18pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 18pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 18pt; font-weight: medium }
+		H2 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H2.western { font-family: "Nimbus Roman No9 L", serif; font-size: 14pt }
+		H2.cjk { font-family: "DejaVu Sans"; font-size: 14pt }
+		H2.ctl { font-family: "DejaVu Sans"; font-size: 14pt; font-weight: medium }
+		H3 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H3.western { font-family: "Arial Narrow", sans-serif; font-size: 12pt }
+		H3.cjk { font-family: "DejaVu Sans"; font-size: 12pt }
+		H3.ctl { font-family: "DejaVu Sans"; font-weight: medium }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1 CLASS="western">Adding Help Content</H1>
+<P STYLE="margin-bottom: 0in">The help content for the product should
+be created on its own plug-in project. Fortunately, the PDE wizard
+already provides a startup template to build a basic table of
+contents:</P>
+<P STYLE="margin-left: 0.55in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">1.	Click File &gt; New &gt;
+Project, and select Plug-in Project, and click next.</FONT></P>
+<P STYLE="margin-left: 0.55in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">2.	Enter a project name
+(MailHelp for example), and click next.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	3.	Uncheck <I>Generate an
+activator</I> (as the plug-in will not contribute any code), then
+make sure <I>This plug-in will make contributions to the UI</I> is
+checked, and Rich Client Application is set to No (see figure 6.3).
+Then click next.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	4.	From the template page
+select <I>Plug-in with sample help content</I> (see figure 6.4), then
+click next.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	6.	Finally, enter a label for
+the table of contents, check primary (which will generate a primary
+or main table), and leave <I>Generate ‘Getting Started’ category</I>
+checked (see figure 6.4). Click finish.</FONT></P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic3_html_4ec285e8.png" NAME="graphics3" ALIGN=BOTTOM WIDTH=320 HEIGHT=363 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.3: Help plug-in using the PDE wizard.</I></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic3_html_md2de501.png" NAME="graphics4" ALIGN=BOTTOM WIDTH=320 HEIGHT=363 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.4: PDE wizard template for a sample help plug-in.</I></FONT></FONT></FONT></P>
+<H2 CLASS="western">Content Layout</H2>
+<P STYLE="margin-bottom: 0in">Figure 6.5 shows the typical layout of
+a help plug-in. At the top, we see the plug-in manifest (plugin.xml),
+and one or more table of contents XML files as well as an index file
+(index.xml). The actual help contents (in HTML format) are created in
+the html folder. 
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic3_html_4fb83208.png" NAME="graphics5" ALIGN=BOTTOM WIDTH=239 HEIGHT=256 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.5: Typical help content layout.</I></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.25in; margin-bottom: 0.25in; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.14in 0in; line-height: 0.19in; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Tip
+As a convenience, to reduce file size, the documentation files can be
+packed in a ZIP file called doc.zip in the root folder of the
+plug-in. This is useful if the plug-in is not packed when deployed</FONT></FONT></P>
+<H3 CLASS="western">Plug-in Manifest</H3>
+<P STYLE="margin-bottom: 0in">The plug-in manifest defines the help
+system extension points. There are two main help extension points:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt"><B>	* 	Table of Contents
+(org.eclipse.help.toc):</B> In general, a plug-in that needs to
+provide online help will define one or more TOC files. The <I>file</I>
+attribute defines the name of the TOC file which contains the table
+of contents or section for the plug-in online help. The <I>primary</I>
+attribute specifies whether the TOC file is a primary table of
+contents and meant to be the master. A non primary TOC is meant to be
+integrated into another table of contents. Other attributes are:
+<I>extradir</I>, and <I>category</I>. Extradir defines a relative
+path to a directory containing additional documents. All documents in
+this directory, and all subdirectories, will be indexed and
+accessible through the documentation search. Category defines a
+unique string used to group related books together.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; margin-bottom: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt"><B>	*	Index File
+(org.eclipse.help.index):</B> This extension point defines the name
+of the index file which contains a list of keywords and related
+topics of the help content.</FONT></P>
+<P STYLE="margin-bottom: 0in">The fragment below shows a plug-in
+manifest with two TOC files, a primary (master) and a secondary, as
+well as an index file.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?eclipse
+version=&quot;3.2&quot;?&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;plugin&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;extension</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>point=&quot;org.eclipse.help.toc&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>file=&quot;toc.xml&quot;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>primary=&quot;true&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/toc&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>file=&quot;tocgettingstarted.xml&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/toc&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/extension&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;extension</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>point=&quot;org.eclipse.help.index&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;index</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>file=&quot;index.xml&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/index&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/extension&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/plugin&gt;</FONT></FONT></P>
+<H3 CLASS="western">Table of Contents (TOC)</H3>
+<P STYLE="margin-bottom: 0in">A TOC file consists of a root &lt;<I>toc&gt;</I>
+element with a required <I>label</I> attribute. The <I>topic</I>
+attribute provides a link to a documentation file - usually an HTML
+file. The table of contents will be shown as a hierarchical
+navigation tree within the help user interface.</P>
+<P STYLE="margin-bottom: 0in"><B>Topic Element</B></P>
+<P STYLE="margin-bottom: 0in">Topic is the basic element of a Table
+of Contents. Topics can be nested within other topics. The most
+important attributes of a topic are:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	<B>Label:</B> A required
+label for the topic element.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; margin-bottom: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	<B>Href:</B> A link to a
+documentation file usually in HTML format.</FONT></P>
+<P STYLE="margin-bottom: 0in"><B>Topics with Anchors </B>
+</P>
+<P STYLE="margin-bottom: 0in">Topics can act as containers for other
+topics or specify an anchor ID which provides a point where other
+TOCs can embed their contents. The fragment below defines two TOC
+files. The first TOC uses an anchor to define a point that will allow
+linking other TOC files to this navigation.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?NLS
+TYPE=&quot;org.eclipse.help.toc&quot;?&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc
+label=&quot;Mail Help&quot; topic=&quot;html/toc.html&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+label=&quot;Getting Started&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;anchor
+id=&quot;gettingstarted&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/topic&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/toc&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?NLS
+TYPE=&quot;org.eclipse.help.toc&quot;?&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc
+label=&quot;Getting Started&quot; link_to=&quot;toc.xml#gettingstarted&quot;&gt;
+</FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>	&lt;topic
+label=&quot;Welcome to RCP Mail&quot; 
+href=&quot;html/gettingstarted/maintopic.html&quot;&gt; </FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>		&lt;topic
+label=&quot;Mail&quot; href=&quot;html/gettingstarted/subtopic.html&quot;
+/&gt; </FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>	&lt;/topic&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>	&lt;topic
+label=&quot;Mail User Interface&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>		&lt;topic
+label=&quot;Main Window&quot;
+href=&quot;html/gettingstarted/subtopic2.html&quot; /&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>	&lt;/topic&gt;
+</FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/toc&gt;</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><B>Topics with Links</B></P>
+<P STYLE="margin-bottom: 0in">The link element allows embedding other
+TOC files into the parent, similar to the anchor element.  For
+example, to include the TOC ch01toc.xml within it’s parent:</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+label=&quot;Chapter 1&quot; &gt; </FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>...
+</FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;link
+toc=&quot;ch01toc.xml&quot; /&gt; </FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>...
+</FONT></FONT></FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/topic&gt;</FONT></FONT></P>
+<H3 CLASS="western">Index File</H3>
+<P STYLE="margin-bottom: 0in">The index file is a keyword index for
+contributed help content in XML format. It contains a list of
+keywords and related topics of the content. The fragment below shows
+a typical index file:</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;index&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Vehicle&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;inventory_of_wheel.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Car&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;car.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Ship&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;ship.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Airplane&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;airplane.html&quot; title=&quot;History of aviation&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;jet.html&quot; title=&quot;Jet engine&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Engine&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Horse&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;horse.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Steamer&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;steamer.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Wankel engine&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;wankel.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Jet engine&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;jet.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;entry
+keyword=&quot;Electricity&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;electricity.html&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/entry&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/index&gt;</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">The index consists of a series of
+entries. Each entry may contain several links to help topics
+associated with the keyword. An entry can also be a container for
+other entries (subentries) to form hierarchy of keywords and have
+topics simultaneously. 
+</P>
+<P STYLE="margin-bottom: 0in">The topic element provides reference to
+help content related to the keyword using the <I>href</I> attribute.
+To access a file in another plug-in, use the syntax: <FONT COLOR="#008000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+label=&quot;External Topic&quot;
+href=&quot;../plugin.id/html/other_file.html&quot;/&gt;</FONT></FONT></FONT>.
+</P>
+<P STYLE="margin-bottom: 0in">The title attribute of a topic is used
+to name the link when multiple topics are contained within an entry.
+Figure 6.6 shows the index contents displaying within the help view;
+when a keyword is clicked, the topic contents (from href) will
+displayed in the view. The view also implements a powerful search
+interface.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic3_html_m6b98c88b.png" NAME="graphics6" ALIGN=BOTTOM WIDTH=240 HEIGHT=364 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.6: Help view showing index contents.</I></FONT></FONT></FONT></P>
+<H3 CLASS="western">Internationalization</H3>
+<P STYLE="margin-bottom: 0in">The help system supports
+internationalization for TOC and index files. To do this, the XML
+files must be translated and the resulting copies must be placed
+under a directory named nl/&lt;language&gt;/&lt;country&gt; or
+nl/&lt;language&gt; within the plug-in root directory. The &lt;language&gt;
+and &lt;country&gt; are two letter language and country locale codes.
+For example, Spanish translations must be placed under nl/es. Figure
+6.5 shows the folder layout. Translated versions of the content
+documents should be placed here as well.</P>
+<P STYLE="margin-top: 0.25in; margin-bottom: 0.25in; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.14in 0in; line-height: 0.19in; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Tip
+The locale search priority order goes as follows (from highest):
+nl/&lt;language&gt;/&lt;country&gt;, nl/&lt;language&gt;, and the
+root directory of the plug-in. </FONT></FONT>
+</P>
+<H1 CLASS="western"></H1>
+</BODY>
+</HTML>

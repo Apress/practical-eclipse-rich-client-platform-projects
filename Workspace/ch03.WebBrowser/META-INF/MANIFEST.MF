@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ch03 Plug-in
+Bundle-SymbolicName: ch03.WebBrowser;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ch03.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ ch02.WebBrowser;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Zest (Eclipse Visualization Toolkit)"
+            parentCategory="org.eclipse.ui.Examples"
+            id="org.eclipse.zest.examples">
+      </category>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.eclipse.zest.examples"
+            class="org.eclipse.zest.examples.ui.GraphCreationWizard"
+            hasPages="false"
+            icon="view.gif"
+            id="org.eclipse.gef.examples.flow.wizard.new.file"
+            name="Graph with Icons">
+      </wizard>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.eclipse.zest.examples"
+            class="org.eclipse.zest.examples.ui.TreeGraphCreationWizard"
+            hasPages="false"
+            icon="icons/sample.gif"
+            id="org.eclipse.gef.examples.flow.wizard.new.file"
+            name="Tree Graph with Icons">
+      </wizard>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.zest.examples"
+            name="Zest">
+      </category>
+      <view
+            allowMultiple="true"
+            category="org.eclipse.zest.examples"
+            class="org.eclipse.zest.examples.views.Graph1View"
+            icon="view.gif"
+            id="org.eclipse.zest.examples.views.Graph1View"
+            name="Zest Graph with Icons">
+      </view>
+      <view
+            allowMultiple="true"
+            category="org.eclipse.zest.examples"
+            class="org.eclipse.zest.examples.views.TreeGraphView"
+            icon="icons/sample.gif"
+            id="org.eclipse.zest.examples.views.TreeGraphView"
+            name="Tree Graph with Icons"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

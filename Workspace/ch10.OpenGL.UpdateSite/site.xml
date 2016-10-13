@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/ch10.OpenGL.Feature_1.0.0.jar" id="ch10.OpenGL.Feature" version="1.0.0">
+      <category name="OpenGL"/>
+   </feature>
+   <category-def name="OpenGL" label="OpenGL Sample Plug-ins">
+      <description>
+         OpenGL Sample plug-ins.
+      </description>
+   </category-def>
+</site>

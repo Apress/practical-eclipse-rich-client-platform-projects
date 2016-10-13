@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ch10.OpenGL.Feature"
+      label="OpenGL Samples Feature"
+      version="1.0.0"
+      provider-name="ACME">
+
+   <description url="http://www.acme.com/description">
+      OpenGL sample plug-ins.
+   </description>
+
+   <copyright url="http://www.acme.com/copyright">
+      Copyright ACME Inc.
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      This software is provided under the Eclipse Public License (EPL).
+   </license>
+
+   <url>
+      <update label="ACME Inc." url="http://acme.com/"/>
+   </url>
+
+   <plugin
+         id="ch08.OpenGL"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ch08.OpenGL.Natives"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

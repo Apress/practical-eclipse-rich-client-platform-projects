@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="ch03.BrowserApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Web Browser Perspective"
+            class="ch02.browser.perspective.WebBrowserPerspective"
+            id="ch02.browser.perspective.WebBrowserPerspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="ch03.WebBrowser.application"
+            name="Web Browser RCP">
+         <property
+               name="windowImages"
+               value="platform:/plugin/ch02.WebBrowser/icons/16-earth.png,platform:/plugin/ch02.WebBrowser/icons/32-earth.png">
+         </property>
+         <property
+               name="appName"
+               value="Web Browser RCP">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/128-earth.png">
+         </property>
+         <property
+               name="aboutText"
+               value="Web Browser Application&#x0A;Copyright 2008">
+         </property>
+      </product>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+X">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="ch02.WebBrowser.menus.File"
+               label="File"
+               mnemonic="F">
+            <command
+                  commandId="ch02.WebBrowser.commands.newBrowser"
+                  mnemonic="S"
+                  style="push">
+            </command>
+            <separator
+                  name="ch02.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.file.exit"
+                  mnemonic="X"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Help"
+               mnemonic="H">
+            <command
+                  commandId="org.eclipse.ui.help.aboutAction"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

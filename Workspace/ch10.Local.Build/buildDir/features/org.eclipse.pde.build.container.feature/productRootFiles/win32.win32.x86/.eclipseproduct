@@ -1,0 +1,5 @@
+#Eclipse Product File
+#Sat Sep 27 21:48:50 EDT 2008
+version=1.0.0
+name=RCP OpenGL Application
+id=ch08.OpenGL.product

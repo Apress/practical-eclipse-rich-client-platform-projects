@@ -1,0 +1,12 @@
+!# <elementType>@<elementID>[,<elementVersion>] = <repo specific content>
+!# plugin@com.ibm.icu,3.6.1=CVS,tag=v200704191630,cvsRoot=:pserver:anonymous@dev.eclipse.org:/cvsroot/tools,path=org.eclipse.orbit/com.ibm.icu/bin,prebuilt=true
+
+
+!feature@ch10.OpenGL.Feature=HEAD,:pserver:anonymous@localhost:/cvs,
+!plugin@ch08.OpenGL=HEAD,:pserver:anonymous@localhost:/cvs,
+!plugin@ch02.WebBrowser=HEAD,:pserver:anonymous@localhost:/cvs,
+!frament@ch08.OpenGL.Natives=HEAD,:pserver:anonymous@localhost:/cvs,
+
+feature@ch10.OpenGL.Feature=CVS,tag=HEAD,cvsRoot=:pserver:anonymous@localhost:/cvs,
+plugin@ch08.OpenGL=CVS,tag=HEAD,cvsRoot=:pserver:anonymous@localhost:/cvs,
+fragment@ch08.OpenGL.Natives=CVS,tag=HEAD,cvsRoot=:pserver:anonymous@localhost:/cvs,

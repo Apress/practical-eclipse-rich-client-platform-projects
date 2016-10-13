@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="ch04.NavigatorApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Perspective"
+            class="ch04.Perspective"
+            id="ch04.Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="ch04"
+            name="Chapter 04 Views">
+      </category>
+      <view
+            category="ch04"
+            class="ch04.views.SampleView"
+            icon="icons/sample.gif"
+            id="ch04.views.SampleView"
+            name="SampleTree View">
+      </view>
+   </extension>
+
+<extension
+         point="org.eclipse.ui.views">
+      <view
+            category="ch04"
+            class="ch04.navigator.view.FileSystemNavigator"
+            icon="icons/alt_window_16.gif"
+            id="navigator.view"
+            name="FileSystem Navigator">
+      </view>
+   </extension>
+   
+<extension
+         point="org.eclipse.ui.views">
+      <view
+            category="ch04"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/alt_window_16.gif"
+            id="eclipse.navigator.view"
+            name="Eclipse Navigator">
+      </view>
+   </extension>
+   
+
+<extension
+         point="org.eclipse.ui.navigator.viewer">
+       <viewerActionBinding
+            viewerId="eclipse.navigator.view">
+         <includes>
+             <actionExtension pattern="org.eclipse.ui.navigator.resources.*" />
+         </includes>
+       </viewerActionBinding>
+       <viewerContentBinding 
+            viewerId="eclipse.navigator.view">
+          <includes>
+       	     <contentExtension pattern="org.eclipse.ui.navigator.resourceContent" />		       	      
+	     <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
+          </includes>
+       </viewerContentBinding>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            contentProvider="ch04.navigator.view.TreeContentProvider"
+            id="ch04.navigatorContent"
+            labelProvider="ch04.navigator.view.LabelProvider"
+            name="ch04.navigatorContent">
+         <triggerPoints>
+            <instanceof
+                  value="ch04.navigator.model.NavigatorRoot">
+            </instanceof></triggerPoints>
+      </navigatorContent>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer
+            viewerId="navigator.view">
+      </viewer>
+      
+      <viewerContentBinding
+            viewerId="navigator.view">
+         <includes>
+            <contentExtension
+                  pattern="ch04.navigatorContent">
+            </contentExtension>
+            
+         </includes>
+      </viewerContentBinding>
+   </extension>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="ch04.FileNavigator.application"
+            name="RCP Navigator Application">
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+         <property
+               name="appName"
+               value="RCP Navigator Application">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="ch04"
+            class="org.eclipse.ui.internal.progress.ProgressView"
+            id="ch04.progress.view"
+            name="Progress View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

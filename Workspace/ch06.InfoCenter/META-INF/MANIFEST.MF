@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Infocenter Plug-in
+Bundle-SymbolicName: ch06.InfoCenter;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ch06.infocenter.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.help.ui;bundle-version="3.3.100",
+ org.eclipse.help.webapp;bundle-version="3.3.100"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

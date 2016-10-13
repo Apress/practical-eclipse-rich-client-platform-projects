@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WebBrowser Plug-in
+Bundle-SymbolicName: ch02.WebBrowser;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ch02.browser.internal.BrowserActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.log4j;bundle-version="1.2.13"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/commons-httpclient-3.1.jar,
+ .
+Export-Package: ch02.browser.perspective

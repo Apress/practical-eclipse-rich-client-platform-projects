@@ -1,0 +1,12 @@
+/AddAndAssignSourceCommand.java/1.6/Wed Mar 30 21:27:30 2005//
+/AddCommand.java/1.6/Wed Mar 30 21:27:30 2005//
+/ConnectionCreateCommand.java/1.7/Wed Mar 30 21:27:30 2005//
+/CreateAndAssignSourceCommand.java/1.7/Wed Mar 30 21:27:30 2005//
+/CreateCommand.java/1.5/Wed Mar 30 21:27:30 2005//
+/DeleteCommand.java/1.7/Wed Mar 30 21:27:30 2005//
+/DeleteConnectionCommand.java/1.5/Wed Mar 30 21:27:30 2005//
+/OrphanChildCommand.java/1.5/Wed Mar 30 21:27:30 2005//
+/ReconnectSourceCommand.java/1.6/Wed Mar 30 21:27:30 2005//
+/ReconnectTargetCommand.java/1.6/Wed Mar 30 21:27:30 2005//
+/RenameActivityCommand.java/1.5/Wed Mar 30 21:27:30 2005//
+/SplitTransitionCommand.java/1.5/Wed Mar 30 21:27:30 2005//

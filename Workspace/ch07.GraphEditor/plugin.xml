@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="ch07.graph.editor.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Perspective"
+            class="ch07.graph.editor.Perspective"
+            id="ch07.GraphEditor.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="ch07.GraphEditor.application"
+            name="RCP Graph Editor">
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+         <property
+               name="appName"
+               value="RCP Graph Editor">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/alt_window_16.gif"
+            id="eclipse.navigator.view"
+            name="Project Navigator">
+      </view>
+   </extension>
+   
+<extension
+         point="org.eclipse.ui.navigator.viewer">
+       <viewerActionBinding
+            viewerId="eclipse.navigator.view">
+         <includes>
+             <actionExtension pattern="org.eclipse.ui.navigator.resources.*" />
+         </includes>
+       </viewerActionBinding>
+       <viewerContentBinding 
+            viewerId="eclipse.navigator.view">
+          <includes>
+       	     <contentExtension pattern="org.eclipse.ui.navigator.resourceContent" />		       	      
+	     <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
+          </includes>
+       </viewerContentBinding>
+   </extension>
+   
+</plugin>

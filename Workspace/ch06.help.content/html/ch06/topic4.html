@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Vladimir Silva">
+	<META NAME="CREATED" CONTENT="20080811;10491700">
+	<META NAME="CHANGEDBY" CONTENT="Vladimir Silva">
+	<META NAME="CHANGED" CONTENT="20080811;10524500">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H1 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 18pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 18pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 18pt; font-weight: medium }
+		H2 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H2.western { font-family: "Nimbus Roman No9 L", serif; font-size: 14pt }
+		H2.cjk { font-family: "DejaVu Sans"; font-size: 14pt }
+		H2.ctl { font-family: "DejaVu Sans"; font-size: 14pt; font-weight: medium }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1 CLASS="western">Adding Context Help Support</H1>
+<P STYLE="margin-bottom: 0in">Context help information is provided
+when context-sensitive help is requested by the user by pressing F1
+when a specific widget is active. Adding context sensitive help to a
+product is a multi-step process that can be a bit confusing the first
+time. Assuming we have two separate plug-ins: product and help, the
+steps required are:</P>
+<P STYLE="margin-bottom: 0in">In the product plug-in:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	1.	Modify the UI classes to add
+a help context id for a given control.</FONT></P>
+<P STYLE="margin-bottom: 0in">In the help plug-in:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	1.	Create a contexts XML file
+using the User Assistance wizard page and populate it with some help
+documentation.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	2.	Modify plugin.xml to add the
+org.eclipse.help.contexts extension point for the context file above.</FONT></P>
+<H2 CLASS="western">Context Help Code Updates</H2>
+<P STYLE="margin-bottom: 0in">The first step is to set a help context
+id on the UI controls. For example, the fragment below adds the
+context id <I>Mail.viewer</I> to the Mail view of the Mail template
+of the previous section.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>public
+class MailView extends ViewPart {</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>public
+static final String ID = &quot;Mail.view&quot;;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>private
+Composite top;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>public
+void createPartControl(Composite parent) {</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>top
+= new Composite(parent, SWT.NONE);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">       
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>PlatformUI.getWorkbench().getHelpSystem().setHelp(top,
+&quot;Mail.viewer&quot;);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        </FONT>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>public
+void setFocus() {</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>if
+(top != null)</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>top.setFocus();</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></P>
+<P STYLE="margin-top: 0.25in; margin-bottom: 0.25in; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.14in 0in; line-height: 0.19in; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Tip
+The help context ID of the view above should include the Plug-in ID
+and a string identifier. A context IDs is uniquely identified by
+pluginID.contextID in memory.</FONT></FONT></P>
+<H2 CLASS="western">Contexts XML File</H2>
+<P STYLE="margin-bottom: 0in">The structure of a context file is
+shown in the next fragment. The id attribute is passed by the
+platform to the help system to identify the currently active context.
+The IDs in the manifest file must not contain the period character,
+since the IDs are uniquely identified by pluginID.contextID.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;?xml
+version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;contexts&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;context
+id=&quot;viewer&quot; title=&quot;Mail User Interface&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;description&gt;Context
+from Help plugin&lt;/description&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;topic
+href=&quot;html/gettingstarted/subtopic2.html&quot; label=&quot;Mail
+UI&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">   <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/context&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/contexts&gt;</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">Add a contexts file to the help plug-in
+by clicking File &gt; New &gt; Other and selecting <I>Context Help</I>
+from the <I>User Assistance</I> wizard page as shown in figure 6.7.
+Eclipse provides a powerful editor for context files shown if figure
+6.8.</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic4_html_m28f7e590.png" NAME="graphics7" ALIGN=BOTTOM WIDTH=320 HEIGHT=348 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.7: User Assistance wizard page for help context files.</I></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic4_html_1ea611ab.png" NAME="graphics8" ALIGN=BOTTOM WIDTH=355 HEIGHT=319 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.8: Help  contexts PDE editor.</I></FONT></FONT></FONT></P>
+<H2 CLASS="western">Extension Points</H2>
+<P STYLE="margin-bottom: 0in">The final step is to add the extension
+point org.eclipse.help.contexts to the help plug-in. In the fragment
+below, the file attribute defines the name of the manifest file which
+contains the context-sensitive help for this plug-in. The plugin
+attribute defines the plug-in ID to which its context definitions are
+extended with extra information. In this case the MailHelp plug-in
+will contribute context to the Mail plug-in.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;extension</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>point=&quot;org.eclipse.help.contexts&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;contexts</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>file=&quot;contexts.xml&quot;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>plugin=&quot;Mail&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/contexts&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/extension&gt;</FONT></FONT></P>
+<P>The final result can be seen in figure 6.9. When the user presses
+F1 and the mail view is active the context help for the view will be
+displayed.</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic4_html_40a3f236.png" NAME="graphics9" ALIGN=BOTTOM WIDTH=384 HEIGHT=256 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.9: Mail template showing context sensitive help.</I></FONT></FONT></FONT></P>
+</BODY>
+</HTML>

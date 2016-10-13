@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Vladimir Silva">
+	<META NAME="CREATED" CONTENT="20080811;10491700">
+	<META NAME="CHANGEDBY" CONTENT="Vladimir Silva">
+	<META NAME="CHANGED" CONTENT="20080811;10531100">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H1 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 18pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 18pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 18pt; font-weight: medium }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1 CLASS="western">Customizing the Help System</H1>
+<P STYLE="margin-bottom: 0in">The Eclipse help system can be
+configured and branded to suit your product by specifying custom
+defaults for number of help preferences. The help preferences are
+specified in the plugin_customization.ini file within the product. To
+customize the help system:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	1.	Add a property to the
+plug-in manifest with the plug-in customization file name
+(plugin_customization.ini).</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; margin-bottom: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	2.	Add preferences to
+plugin_customization.ini to customize the help system.</FONT></P>
+<P STYLE="margin-bottom: 0in"><B>In plugin.xml:</B></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;extension</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>id=&quot;product&quot;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>point=&quot;org.eclipse.core.runtime.products&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;product</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>application=&quot;Mail.application&quot;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">            <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>name=&quot;RCP
+Product&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>....</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;property</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">               <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>name=&quot;preferenceCustomization&quot;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">              
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>value=&quot;plugin_customization.ini&quot;&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/property&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">         …</FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">      <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/product&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/extension&gt;</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><B>In plugin_customization.ini:</B></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>org.eclipse.help/HELP_DATA
+= helpData.xml</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>org.eclipse.help.base/help_home
+= /MailHelp/html/toc.html</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"><FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>org.eclipse.help.base/banner
+= /MailHelp/html/banner.html</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>org.eclipse.help.base/banner_height
+= 60</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">The HELP_DATA property allows to
+control the order in which contributed parts of the table of contents
+are displayed for your product or to hide parts of the table of
+contents that some of your plug-ins contribute. The file helpData.xml
+shown in the fragment below, sets the TOC display order to toc.xml,
+followed by toc1.xml and hides the file toctest.xml.</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;extensions&gt;</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"> <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;tocOrder&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc
+id=&quot;/MailHelp/toc.xml&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc
+id=&quot;/MailHelp/toc1.xml&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"> <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/tocOrder&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"> <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;hidden&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">  <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;toc
+id=&quot;/MailHelp/toctest.xml&quot;/&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000"> <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/hidden&gt;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>&lt;/extensions&gt;</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">Other interesting properties include:</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	<B>org.eclipse.help.base/help_home:</B>
+It defines the page to show in the content area when opening help.
+The format is /PLUGIN_ID/path/to/file.html</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	<B>org.eclipse.help.base/banner:</B>
+It defines the location of the banner page to display in the top
+frame. For example org.eclipse.help.base/banner =
+/MailHelp/html/banner.html</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	<B>org.eclipse.help.base/banner_height:</B>
+It defines the height of the banner frame.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic5_html_45850e8e.png" NAME="graphics10" ALIGN=BOTTOM WIDTH=366 HEIGHT=293 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.10: Customized help for the RCP mail template.</I></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

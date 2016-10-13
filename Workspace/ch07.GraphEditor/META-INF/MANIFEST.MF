@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GraphEditor Plug-in
+Bundle-SymbolicName: ch07.GraphEditor; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ch07.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.gef.examples.flow;bundle-version="3.4.0",
+ org.eclipse.gef.examples.logic;bundle-version="3.4.0",
+ org.eclipse.gef.examples.shapes;bundle-version="3.4.0",
+ org.eclipse.gef;bundle-version="3.4.0",
+ org.eclipse.ui.navigator;bundle-version="3.3.100",
+ org.eclipse.ui.navigator.resources;bundle-version="3.3.100"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

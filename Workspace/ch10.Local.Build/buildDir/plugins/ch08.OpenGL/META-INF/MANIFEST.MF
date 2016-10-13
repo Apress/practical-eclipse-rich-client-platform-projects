@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenGL Plug-in
+Bundle-SymbolicName: ch08.OpenGL;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: ch08.opengl.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/gluegen-rt.jar,
+ lib/jogl.jar,
+ lib/worldwind-050.jar,
+ .

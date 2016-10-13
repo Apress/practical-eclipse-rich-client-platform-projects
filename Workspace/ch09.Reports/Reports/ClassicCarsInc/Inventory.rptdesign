@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.16" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.0.v20080606 Build &lt;2.3.0.v20080618-0630></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="6">
+            <text-property name="displayName"></text-property>
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+            <property name="OdaConnProfileName"></property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Inventory" id="7">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">PRODUCTCODE</property>
+                    <property name="displayName">PRODUCTCODE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRODUCTNAME</property>
+                    <property name="displayName">PRODUCTNAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRODUCTLINE</property>
+                    <property name="displayName">PRODUCTLINE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRODUCTSCALE</property>
+                    <property name="displayName">PRODUCTSCALE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRODUCTVENDOR</property>
+                    <property name="displayName">PRODUCTVENDOR</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PRODUCTDESCRIPTION</property>
+                    <property name="displayName">PRODUCTDESCRIPTION</property>
+                </structure>
+                <structure>
+                    <property name="columnName">QUANTITYINSTOCK</property>
+                    <property name="displayName">QUANTITYINSTOCK</property>
+                </structure>
+                <structure>
+                    <property name="columnName">BUYPRICE</property>
+                    <property name="displayName">BUYPRICE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">MSRP</property>
+                    <property name="displayName">MSRP</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">PRODUCTCODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">PRODUCTNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PRODUCTLINE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">PRODUCTSCALE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">PRODUCTVENDOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">PRODUCTDESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">QUANTITYINSTOCK</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">BUYPRICE</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">MSRP</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">PRODUCTCODE</property>
+                    <property name="nativeName">PRODUCTCODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">PRODUCTNAME</property>
+                    <property name="nativeName">PRODUCTNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PRODUCTLINE</property>
+                    <property name="nativeName">PRODUCTLINE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">PRODUCTSCALE</property>
+                    <property name="nativeName">PRODUCTSCALE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">PRODUCTVENDOR</property>
+                    <property name="nativeName">PRODUCTVENDOR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">PRODUCTDESCRIPTION</property>
+                    <property name="nativeName">PRODUCTDESCRIPTION</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">QUANTITYINSTOCK</property>
+                    <property name="nativeName">QUANTITYINSTOCK</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">BUYPRICE</property>
+                    <property name="nativeName">BUYPRICE</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">MSRP</property>
+                    <property name="nativeName">MSRP</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select *
+from CLASSICMODELS.PRODUCTS
+order by CLASSICMODELS.PRODUCTS.PRODUCTNAME,CLASSICMODELS.PRODUCTS.MSRP</property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>1.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTCODE</design:name>
+            <design:position>1</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>15</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTCODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTCODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>15</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTNAME</design:name>
+            <design:position>2</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>70</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>70</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTLINE</design:name>
+            <design:position>3</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTLINE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTLINE</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTSCALE</design:name>
+            <design:position>4</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTSCALE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTSCALE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTVENDOR</design:name>
+            <design:position>5</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTVENDOR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTVENDOR</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>PRODUCTDESCRIPTION</design:name>
+            <design:position>6</design:position>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>32700</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRODUCTDESCRIPTION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRODUCTDESCRIPTION</design:label>
+            <design:formattingHints>
+              <design:displaySize>32700</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>QUANTITYINSTOCK</design:name>
+            <design:position>7</design:position>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>QUANTITYINSTOCK</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>QUANTITYINSTOCK</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>BUYPRICE</design:name>
+            <design:position>8</design:position>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>15</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>BUYPRICE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>BUYPRICE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:name>MSRP</design:name>
+            <design:position>9</design:position>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>15</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MSRP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MSRP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>
+]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab-cell" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="9">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="width">100%</property>
+            <column id="10">
+                <property name="width">2.8in</property>
+            </column>
+            <column id="11">
+                <property name="width">3.2in</property>
+            </column>
+            <row id="12">
+                <property name="style">BackgroundLightGray</property>
+                <cell id="13">
+                    <property name="style">BackgroundLightGray</property>
+                    <image id="46">
+                        <property name="source">embed</property>
+                        <property name="imageName">eclipse_home_header.jpg</property>
+                    </image>
+                </cell>
+                <cell id="15">
+                    <property name="style">BackgroundLightGray</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="16">
+                        <property name="fontFamily">sans-serif</property>
+                        <property name="fontSize">20pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">#000080</property>
+                        <text-property name="text">Classic Models, Inc.</text-property>
+                    </label>
+                    <text id="17">
+                        <property name="fontFamily">sans-serif</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[701 Gateway Boulevard,<BR>
+San Francisco, CA 94107<BR>
+<BR>]]></text-property>
+                    </text>
+                    <label id="18">
+                        <property name="fontFamily">sans-serif</property>
+                        <property name="fontSize">18pt</property>
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Product Catalog</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="19">
+                <property name="height">0.25in</property>
+                <cell id="20"/>
+                <cell id="21"/>
+            </row>
+        </grid>
+        <table id="23">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="width">100%</property>
+            <property name="dataSet">Inventory</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">PRODUCTNAME</property>
+                    <property name="displayName">PRODUCTNAME</property>
+                    <expression name="expression">dataSetRow["PRODUCTNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MSRP</property>
+                    <property name="displayName">MSRP</property>
+                    <expression name="expression">dataSetRow["MSRP"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">PRODUCTDESCRIPTION</property>
+                    <property name="displayName">PRODUCTDESCRIPTION</property>
+                    <expression name="expression">dataSetRow["PRODUCTDESCRIPTION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="36"/>
+            <column id="37"/>
+            <column id="38"/>
+            <header>
+                <row id="24">
+                    <cell id="25">
+                        <label id="39">
+                            <text-property name="text">PRODUCTNAME</text-property>
+                        </label>
+                    </cell>
+                    <cell id="26">
+                        <label id="43">
+                            <text-property name="text">PRODUCTDESCRIPTION</text-property>
+                        </label>
+                    </cell>
+                    <cell id="27">
+                        <label id="41">
+                            <text-property name="text">MSRP</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="28">
+                    <cell id="29">
+                        <data id="40">
+                            <property name="resultSetColumn">PRODUCTNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="30">
+                        <data id="44">
+                            <property name="resultSetColumn">PRODUCTDESCRIPTION</property>
+                        </data>
+                    </cell>
+                    <cell id="31">
+                        <data id="42">
+                            <property name="resultSetColumn">MSRP</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="32">
+                    <cell id="33"/>
+                    <cell id="34"/>
+                    <cell id="35"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">eclipse_home_header.jpg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQA
+                BgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8f
+                Hx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f
+                Hx8fHx8fHx8f/8AAEQgARACDAwERAAIRAQMRAf/EAIsAAAICAwEAAAAAAAAAAAAAAAAEAQMCBQYHAQEB
+                AQEBAQEAAAAAAAAAAAAAAQIDBAUGEAABAgQEBAUDAgYDAQAAAAABAgMAEQQFMRITBvAhgTJBUWFxInIU
+                B5FCscFSYiMV8dIWJhEBAQADAAIABQQDAAAAAAAAAAERAgMhEjFRYXEEkaEichMjM//aAAwDAQACEQMR
+                AD8Ae1Ppw46x+ncUKekP24cdYBR2qB8Rhz484ilV1BnykeUBUX/OWEBGr7YQBq+2EBkHvUYQFqHvUYQD
+                TVR7YcdYBpL0x+3DjrFROp9OHHWANT6cOOsAan04cdYA1Ppw46wBqfThx1gDU+nDjrAKavthx1iKoeqP
+                bDjrALJzPOCUsPCFo31BtuoqWwpKJxx26NYYV+1qlhOd4aSPXu/SE6ZMNG8wlslKSesbmxgo48pJwBAj
+                WUQipQoyPxPrDIuDhHlhFFyHiPLCCGG6wJ8sIDP74f24cdYCU1gPlhx1gLQ9PApw46wBq+2HHWANX2w4
+                6wBq+2HHWAQW8Cnnl7eOsTIVW6R4giUFM2txOsJyjOw9z2E7aae369UEhZAKAQDISx94+d+RNr8G45nf
+                FbSPPOKakE85CO/KWRHmdY4NQkR6UZq27Ur2jW7o1m00dFUopHGDm1CpzJIggZZf5BGL1k2mpgpYdt3K
+                /it+wUyn7GnVVvl5eT/GjHLyMzF36TXGRrqGtDyJTnymknEiOqGFPS5CWEBCXSfLCAtC1S8MICdUjywh
+                kXNVJHKYw46wRfreo7eOsMg1vUdvHWGQa3qO3jrDIxqqPSKQEvDMmfyaH8lnnGJspf7TN+148vBof941
+                kegW/arNhsFsr1bZrNzXa8DVS3pOfbUbMxl1Q1mBUtKp8z+kufg6d7drJfWRqRs92qdpdsUN+ZttRZFr
+                qfs661rCiJlJUh1vPkIT8Zf8c8cun8sW+ykqNuzU22Kvdu4GX66lZeFLR2tJ01PvKlzUpJ7fl5+Bxwjp
+                03vtNdf1RzF+vm2bvaFmi2rUWW7BaCw+w5qsrbzfNK0KKJHLhyx8Y3zm8vm5gecpVD8FX1BS6Cq605IK
+                QFYsYAKjPS/7Z9iNf+P9qWe6019/2lK5UCjtL9TShc0BLyJZVDIsTI8jyjffpdZMfMjS/jOy0V03TZqW
+                tYedo6h7K+2pORKk6ajIqQvMOY8I6dN7NLYOwVfPxjR7mqdvK2k8/RtVi6Spuj1SrVQQ6UFSEJwQg4fI
+                EjHnHml67TPseGlu+0WbZ+RXdqmoUmmNSw2zVrAOVipylKlGaQSgLkT5iO3LvdtPYsdTuc7d2veXLQ9s
+                J2qtTASn/bPPPJW/NIJcQ6lJQOZwzDpHn0333mfbyuHn5ZRX3dbFtZWhiqqC3b2XDmWEOLk0lRmflIgE
+                x7tNrJ5ZegXjb7G3a5Fnt+xqzcaadKPv7w6iqSl9SkgqFPopyICZynz6ymfDO938+3r9PC4cx+Q7LTbf
+                v1K3SNuU9Fc6JquYpKkHVp9SYUyufPMhSfHn4Hnzjv8Aj9rtPJY57XH9vbx1j05ZGuP7e3jrDIirqqFS
+                kltbBGXnkaWkfoVYxIqpNTR/1Mjl4tKP84o9UpLtVbusNgZsG5kWe8WRApa+2Lfdo0VLKQkNrayq+Sgl
+                HkcTOXKfzt9PTa5mZWmq/JFqr6C20v8AvdzIrnVPpCbSp56rkQlR1VJK/jlw7fHGN8Lrb4hRZnLFuTYl
+                TsxdxpKC5orE19qcqkqZpnFAAFtRJPy7vGfMSBkYvbW67zfGZjCRrL/s9G2rMaq73O0CqmhFPbqeb7zm
+                ZUlKkFJISlPOcjHTn3m1xJTCx24Wo/hO90wqKZL67pTrQxlKVKSCzzDZVmVgeYjPSX/LL9CD8XV9rYpd
+                zatRTslyx1KEZklrMogSSMyvl9I5xfyZbNf7QjQfhtyl/wDb7dSC0Fmo5AMrCp6S/wBxMhG+3/Ojsav8
+                af8A1tzvFyvdnasBr3qmqqBUAuJQXytTOSQk6O0gnHzjz6fkY1xJcrhzO4L/AG3d/wCSaq5B5NJbKt5q
+                maqnUH4MICWtVYJT5Fco68NLpolelbfb37ZLhTO1O7LdUbWZWk1L71U282qnT3JQXElxKsvISVKPN09N
+                p41s2+yvLK/cFCne1dd7M2lNuZuH3VvRlypKW3AsSTyypUpJIHgDHs5S3TF+SV3u5mdw7luy7/s3d5/1
+                lahC3bW7cF0jtI4EhK0lorCQn4z5eM8RIx49JNPG0/ZXnW8qeqpLyyzXX5q/1iacFypaqF1SGiVq/wAI
+                cWTMiWY+8enjZfhMJWp1/VPbx1j1INf1T28dYDX6/wBPbx1jIzQSQCSlKSMTy4MaFyRTLGVSQ7y5E8h+
+                kUdlRUNvvNmKEJSiuaAKhh8xgr2UMfWOPr61XL1LeRS2HkSUk5VIUMCI6oSFHSIVmSgJPsBDAl1La5TA
+                MvGNCl8tlOUgEQGz2Xdk2LcdBfCzrooHdVLAVkz/ABKSAqSpY+UY66e2t1Cd4qGrherjdFNJbNdUPVOm
+                TmKdVZXlzSE5Zo58+eJ5XKtp8I5CQ5R1RmVU6jMpTOU5xLrAKqEgSEgJRZ4C63UqPMJPx8eMYztJRilS
+                EmYyzy8dYk1kMs9c+ae3jrFBrnzT28dYBAVBBmCkHLx1iZEioJPMgnL48YxchqndKlhKZEkRqUbq33Ry
+                ieSumcyuJxWMD5j1EWzI3VbWWm8MhypH2lfKQeQMyFS/qGMZksHP1NE+ycUuo8FIII/TGNBNQfPIIUPc
+                S/jFGApyebpEv6R/MwyJW8AJCQEuQiZCzj/PwwjORQX5f04cdYmRIqfUdvHWGRBqCfFPbx1iZGOv6p7e
+                OsMg1vVPbx1hkGt6p7eOsMg1vVPbx1hkJavqnt46xMjJLhKgBlJKeQ48YBoVQaTpoKSop+ax/ARrItZq
+                jMAEYRZQ99/8gAeSRIc4uRn9+ZY+EUYLrJ+PhDIXXVT8RhGchZyo9Rhx1iBdb+Pb28dYmRUXueKe3jrE
+                yI1fVPbx1hkGr6p7eOsMg1fVPbx1hkGr6p7eOsMg1fVPbx1hkGr6p7eOsMhX5RFWIz5FZO/x88vpFRCM
+                /hEDDOpm5Yy5e8aFqNXpAWDViiFasBWrViClWeCqVZ4yjD5QUfKAPlAHygD5QB8oA+UB/9k=
+            </property>
+        </structure>
+    </list-property>
+</report>

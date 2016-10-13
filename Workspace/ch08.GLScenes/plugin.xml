@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="ch08.glscenes.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="ch08.glscenes.Perspective"
+            id="ch08.GLScenes.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="ch08.GLScenes.application"
+            name="GL Scenes">
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+         <property
+               name="appName"
+               value="GL Scenes">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="ch08.GLScenes"
+            name="GL Scenes Category">
+      </category>
+      <view
+            category="ch08.GLScenes"
+            class="ch08.glscenes.views.CubesView"
+            icon="icons/sample.gif"
+            id="ch08.glscenes.views.CubesView"
+            name="GL Cubes View">
+      </view>
+      <view
+            category="ch08.GLScenes"
+            class="ch08.glscenes.views.ChartView"
+            icon="icons/sample.gif"
+            id="ch08.glscenes.views.ChartView"
+            name="3D Chart View">
+      </view>
+   </extension>
+
+</plugin>

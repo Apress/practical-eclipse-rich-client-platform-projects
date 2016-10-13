@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="Vladimir Silva">
+	<META NAME="CREATED" CONTENT="20080811;10491700">
+	<META NAME="CHANGEDBY" CONTENT="Vladimir Silva">
+	<META NAME="CHANGED" CONTENT="20080811;10502900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		H1 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 18pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 18pt }
+		H1.ctl { font-family: "DejaVu Sans"; font-size: 18pt; font-weight: medium }
+		H2 { margin-top: 0.25in; margin-bottom: 0.08in }
+		H2.western { font-family: "Nimbus Roman No9 L", serif; font-size: 14pt }
+		H2.cjk { font-family: "DejaVu Sans"; font-size: 14pt }
+		H2.ctl { font-family: "DejaVu Sans"; font-size: 14pt; font-weight: medium }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1 CLASS="western">Configuring a Product to Use the Help System</H1>
+<P STYLE="margin-bottom: 0in">Configuring your RCP product to use the
+help system is a two step process: add the required help system
+plug-in dependencies to the product; and update the code (the menu
+bar for example) to display actions to start the help.</P>
+<H2 CLASS="western">Adding the Dependency Plug-ins</H2>
+<P STYLE="margin-bottom: 0in">To add dependency plug-ins, open the
+product configuration editor (.product) and add the following
+plug-ins under <I>Plug-ins and Fragments</I> of the <I>Configuration</I>
+tab (see Figure 6.1):</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.17in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	org.eclipse.help.appserver </FONT>
+</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	org.eclipse.help.base </FONT>
+</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	org.eclipse.help.ui </FONT>
+</P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	org.eclipse.help.webapp</FONT></P>
+<P STYLE="margin-top: 0.25in; margin-bottom: 0.25in; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0.14in 0in; line-height: 0.19in; widows: 0; orphans: 0">
+<FONT FACE="Arial Narrow, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Tip	To
+add all the required dependencies, check <I>Include optional
+dependencies when computing required plug-ins</I> and then click <I>Add
+Required Plug-ins</I>. This will ensure all required plug-ins are
+included. Missing dependencies will cause the help system to fail at
+startup.</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic2_html_6dcf4e42.png" NAME="graphics1" ALIGN=BOTTOM WIDTH=371 HEIGHT=319 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.1: Product configuration editor showing help system plug-ins.</I></FONT></FONT></FONT></P>
+<H2 CLASS="western">Updating the Menu Bar</H2>
+<P STYLE="margin-bottom: 0in">The product should include actions to
+start the help from the main menu. In the fragment below we show the
+changes required to the ActionBarAdvisor class from the plug-in
+product to add the Eclipse factory actions for the help system:</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-top: 0.11in; margin-bottom: 0in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>public
+class ApplicationActionBarAdvisor extends ActionBarAdvisor {</FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+Help actions</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>private
+IWorkbenchAction showHelpAction;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>private
+IWorkbenchAction searchHelpAction;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>private
+IWorkbenchAction dynamicHelpAction;</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>protected
+void makeActions(final IWorkbenchWindow window) {</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+Help Contents</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>showHelpAction
+= ActionFactory.HELP_CONTENTS.create(window);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>register(showHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+Help Search</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>searchHelpAction
+= ActionFactory.HELP_SEARCH.create(window);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>register(searchHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+Dynamic Help</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>dynamicHelpAction
+= ActionFactory.DYNAMIC_HELP.create(window);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>register(dynamicHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>protected
+void fillMenuBar(IMenuManager menuBar) {</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>MenuManager
+helpMenu = new MenuManager(&quot;&amp;Help&quot;,</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">               
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>IWorkbenchActionConstants.M_HELP);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+Help menu options</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>helpMenu.add(showHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>helpMenu.add(searchHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>helpMenu.add(dynamicHelpAction);</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>helpMenu.add(new
+Separator());</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">        <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>//
+...</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<BR>
+</P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0in; font-weight: medium; line-height: 0.17in">
+<FONT COLOR="#000000">    <FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></FONT></P>
+<P LANG="" STYLE="margin-right: 0.1in; margin-bottom: 0.11in; line-height: 0.17in">
+<FONT FACE="TheSansMonoConNormal, Arial Narrow, sans-serif"><FONT SIZE=2>}</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">The class
+org.eclipse.ui.actions.ActionFactory gives access to standard actions
+provided by the workbench. There are three factory actions for the
+help system:</P>
+<P STYLE="margin-left: 0.55in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">*	HELP_CONTENTS: This action
+opens the help contents on a separate window.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	HELP_SEARCH: This action
+opens the help keyword search as a view within the product's main
+window.</FONT></P>
+<P STYLE="margin-left: 0.4in; text-indent: -0.4in; margin-top: 0.08in; line-height: 0.18in; page-break-inside: avoid">
+<FONT SIZE=3 STYLE="font-size: 11pt">	*	DYNAMIC_HELP: This action
+opens the dynamic help within a view. Dynamic help can change
+automatically as the user selects a different UI widget. This happens
+without forcing the user to re-press F1.</FONT></P>
+<P STYLE="margin-bottom: 0in">The help menu actions and help view are
+shown in figure 6.2.</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="topic2_html_4e46aa86.png" NAME="graphics2" ALIGN=BOTTOM WIDTH=383 HEIGHT=256 BORDER=0></P>
+<P STYLE="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 0.19in; widows: 2; orphans: 2">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Figure
+6.2: RCP Mail template showing standard help actions and help view.</I></FONT></FONT></FONT></P>
+<H1 CLASS="western"></H1>
+</BODY>
+</HTML>

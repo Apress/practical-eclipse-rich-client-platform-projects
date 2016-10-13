@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toc label="Chapter 6" topic="html/ch06/overview.html">
+<!--
+   <topic href="html/ch06/topic1.html" label="Help System Benefits">
+   </topic>
+   -->
+   <topic href="html/ch06/topic2.html" label="Configuring a Product to Use the Help System">
+   </topic>
+   <topic href="html/ch06/topic3.html" label="Adding Help Content">
+   </topic>
+   <topic href="html/ch06/topic4.html" label="Adding Context Help Support">
+   </topic>
+   <topic href="html/ch06/topic5.html" label="Customizing the Help System">
+   </topic>
+</toc>
